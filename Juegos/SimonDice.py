@@ -40,48 +40,35 @@ class SimonDice():
         self.root.mainloop()
 
     def B1(self):
-        self.listajuego.append(1)
-        if self.listareferencia[self.contador] != self.listajuego[self.contador]:
-            mb.showerror(title="Mensaje del juego",message="Perdiste")
-
-        self.contador += 1
-        if self.contador == self.numero_combinaciones:
-            mb.showinfo(title="Mensaje del juego",message="Ganaste")
-
+        self.resultado(1)
 
     def B2(self):
-        self.listajuego.append(2)
-        if self.listareferencia[self.contador] != self.listajuego[self.contador]:
-            mb.showerror(title="Mensaje del juego",message="Perdiste")
-
-        self.contador += 1
-        if self.contador == self.numero_combinaciones:
-            mb.showinfo(title="Mensaje del juego",message="Ganaste")
-
+        self.resultado(2)
 
     def B3(self):
-        self.listajuego.append(3)
-        if self.listareferencia[self.contador] != self.listajuego[self.contador]:
-            mb.showerror(title="Mensaje del juego",message="Perdiste")
-
-        self.contador += 1
-        if self.contador == self.numero_combinaciones:
-            mb.showinfo(title="Mensaje del juego",message="Ganaste")
+        self.resultado(3)
 
     def B4(self):
-        self.listajuego.append(4)
+        self.resultado(4)
+
+    def resultado(self,posicion):
+        self.listajuego.append(posicion)
+        
         if self.listareferencia[self.contador] != self.listajuego[self.contador]:
             mb.showerror(title="Mensaje del juego",message="Perdiste")
+            for i in range(4):
+                self.botones[i].config(state=tk.DISABLED)
 
         self.contador += 1
         if self.contador == self.numero_combinaciones:
             mb.showinfo(title="Mensaje del juego",message="Ganaste")
-
+            for i in range(4):
+                self.botones[i].config(state=tk.DISABLED)
 
     def inicio(self):
         for i in range(4):
             self.botones[i].config(state=tk.NORMAL)
-            
+
         self.contador = 0
         self.listareferencia = []
         self.listajuego = []
