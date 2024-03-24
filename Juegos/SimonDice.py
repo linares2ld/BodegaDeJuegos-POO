@@ -66,8 +66,6 @@ class SimonDice():
                 self.botones[i].config(state=tk.DISABLED)
 
     def inicio(self):
-        for i in range(4):
-            self.botones[i].config(state=tk.NORMAL)
 
         self.contador = 0
         self.listareferencia = []
@@ -98,5 +96,7 @@ class SimonDice():
             self.root.update()
             time.sleep(0.4)
 
+        for i in range(4):
+            self.botones[i].config(state=tk.NORMAL)
 calculadora = SimonDice()
 calculadora.interfaz()
